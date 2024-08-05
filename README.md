@@ -39,7 +39,42 @@ The Composite design pattern is used to allow a single entity (`Flight`) and a c
 
 2. **Create a Smaller Flight Company:**:
    ```java
-   Flight flight1 = new Flight("ABC123");
-   Flight flight2 = new Flight("XYZ789");
+   FlightCompany smallerCompany = new FlightCompany("Smaller Company");
+   smallerCompany.addComponent(flight1);
+   smallerCompany.addComponent(flight2);
+
+3. **Create a Larger Flight Company and Add the Smaller Company:**:
+   ```java
+   FlightCompany largerCompany = new FlightCompany("Larger Company");
+   largerCompany.addComponent(smallerCompany);
+
+4. **Display Details:**:
+   ```java
+   largerCompany.display();
+
+**Example**
+Here is a simple example demonstrating the usage of the Flight and FlightCompany classes:
+  ```java
+  public class Main {
+    public static void main(String[] args) {
+        // Create individual flights
+        Flight flight1 = new Flight("ABC123");
+        Flight flight2 = new Flight("XYZ789");
+
+        // Create a smaller flight company
+        FlightCompany smallerCompany = new FlightCompany("Smaller Company");
+        smallerCompany.addComponent(flight1);
+        smallerCompany.addComponent(flight2);
+
+        // Create a larger flight company
+        FlightCompany largerCompany = new FlightCompany("Larger Company");
+        largerCompany.addComponent(smallerCompany);
+
+        // Display larger company details
+        largerCompany.display();
+    }
+}
+
+   
 
 
